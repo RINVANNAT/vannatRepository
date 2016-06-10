@@ -37,8 +37,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ad
 });
 
 Route::group(['as' => 'fourOperation'], function() {
-    Route::get('/index', 'myTodo@index');
-    Route::post('/create', 'myTodo@addTodo');
-    Route::put('/edit', 'myTodo@editTodo');
-    Route::delete('/delet', 'myTodo@deletTodo');
+    Route::get('/index', 'myTodoController@index');
+    Route::post('/add', 'myTodoController@addTodo');
+    Route::get('/add', 'myTodoController@addNewTodo');
+    Route::put('/edit/{id}', 'myTodoController@editTodo');
+    Route::delete('/delete/{id}', 'myTodoController@deleteTodo');
 });
