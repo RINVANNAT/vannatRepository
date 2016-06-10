@@ -35,3 +35,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ad
     require (__DIR__ . '/Routes/Backend/Access.php');
     require (__DIR__ . '/Routes/Backend/LogViewer.php');
 });
+
+Route::group(['as' => 'fourOperation'], function() {
+    Route::get('/index', 'myTodo@index');
+    Route::post('/create', 'myTodo@addTodo');
+    Route::put('/edit', 'myTodo@editTodo');
+    Route::delete('/delet', 'myTodo@deletTodo');
+});
